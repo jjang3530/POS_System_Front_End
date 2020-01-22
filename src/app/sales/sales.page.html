@@ -1,0 +1,47 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>
+        Sales Status
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+      <ion-card >
+          <ion-row>
+            <ion-col class="center">Order Number</ion-col>
+            <ion-col size="3">Payment Date</ion-col>
+            <ion-col class="center">Table</ion-col>
+            <ion-col class="center">Amount</ion-col>
+          </ion-row>
+        </ion-card>
+    
+        <ion-card *ngFor="let detail of detailData">
+          <ion-row>
+              <ion-col class="center">{{detail.orders.orderId}}</ion-col>
+              <ion-col size="3">{{detail.paymentDate}}</ion-col>
+              <ion-col class="center">{{detail.orders.tableId}}</ion-col>
+              <ion-col class="center">${{detail.amount  | number:'1.2-2'}}</ion-col>
+          </ion-row>
+        </ion-card>
+        <ion-card class="total">
+          <ion-row>
+            <ion-col></ion-col>
+            <ion-col size="3"></ion-col>  
+            <ion-col>TOTAL:</ion-col>
+            <ion-col>${{total}}</ion-col>
+          </ion-row>
+        </ion-card>
+        <ion-row class="center">
+            <ion-col>
+            </ion-col>
+            <ion-col>
+                  <ion-icon class="icon" color="primary" name="home" [routerLink] ="['/home']"></ion-icon>
+            </ion-col>
+            <ion-col>
+            </ion-col>
+          </ion-row>
+  </ion-content>

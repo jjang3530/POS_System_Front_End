@@ -1,0 +1,28 @@
+<ion-card *ngFor="let menu of menuData"> 
+  <section>
+      <ion-img [src]="menu.largePic" alt="Menu Picture"></ion-img>
+  </section>
+  <div>
+    <h3>{{menu.menuName}}</h3>
+    <h3>${{menu.unitPrice}}</h3>
+    <h3>
+        <ion-select #quantity (ionChange)="onChange(quantity.value)">
+         <ion-select-option value=0 selected>Quantity</ion-select-option>
+         <ion-select-option value=1>1</ion-select-option>
+         <ion-select-option value=2>2</ion-select-option>
+         <ion-select-option value=3>3</ion-select-option>
+         <ion-select-option value=4>4</ion-select-option>
+         <ion-select-option value=5>5</ion-select-option>
+         <ion-select-option value=6>6</ion-select-option>
+         <ion-select-option value=7>7</ion-select-option>
+         <ion-select-option value=8>8</ion-select-option>
+         <ion-select-option value=9>9</ion-select-option>
+         <ion-select-option value=10>10</ion-select-option>
+       </ion-select>
+    </h3>
+    
+  </div>
+  <section>
+    <ion-button expand="block" (click)="orderMenu()">ORDER</ion-button>
+  </section>
+</ion-card>

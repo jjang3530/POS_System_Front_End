@@ -1,0 +1,39 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title>Order Detail: Table {{id}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+  
+      <ion-card>
+        <ion-row>
+          <ion-col size="6">Menu</ion-col>
+          <ion-col>Unit Price</ion-col>
+          <ion-col>Quantity</ion-col>
+        </ion-row>
+      </ion-card>
+
+      <ion-card *ngFor="let detail of detailData">
+        <ion-row>
+            <ion-col size="6">{{detail.menus.menuName}}</ion-col>
+            <ion-col>${{detail.menus.unitPrice}}</ion-col>
+            <ion-col>{{detail.quantity}}</ion-col>
+        </ion-row>
+      </ion-card>
+  
+      <ion-row>
+          <ion-col>
+            <ion-button Fill="outline" color="medium" [routerLink] ="['/home']">
+              <ion-label>BACK</ion-label>
+            </ion-button>
+          </ion-col>
+          <ion-col>
+              <ion-button Fill="outline" color="success" (click)="createOrder()" [routerLink] ="['/order', id]">ORDER</ion-button>
+          </ion-col>
+          <ion-col>
+              <ion-button [disabled]="!isenabled" Fill="outline" color="danger" [routerLink] ="['/payment', id]">PAY</ion-button>
+          </ion-col>
+        </ion-row>
+  
+    </ion-content>

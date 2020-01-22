@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Order: Table {{id}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-card>
+      <ion-row>
+        <ion-col size="4">Menu</ion-col>
+        <ion-col>Menu Image</ion-col>
+        <ion-col>Unit Price</ion-col>
+      </ion-row>
+    </ion-card>
+  
+    <ion-card *ngFor="let menu of menuData" (click)="openPopover(menu.menuId)"> 
+      <ion-row class="menu">
+        <ion-col size="4">{{menu.menuName}}</ion-col>
+        <ion-col class="menuphoto">
+            <ion-thumbnail>
+                <ion-img [src]="menu.thumbPic" alt="PIC Thumb"></ion-img>
+            </ion-thumbnail>
+        </ion-col>
+        <ion-col class="price">${{menu.unitPrice}}</ion-col>
+      </ion-row>
+    </ion-card>
+    
+    <ion-row>
+        <ion-col>
+          <ion-button Fill="outline" color="medium" (click)="backClear()" [routerLink] ="['/table', id]">BACK</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button Fill="outline" color="danger" (click)="openPopoverClear()" >CLEAR ORDER</ion-button>
+      </ion-col>
+        <ion-col>
+            <ion-button Fill="outline" color="success" [routerLink] ="['/confirm', id]">CHECK</ion-button>
+        </ion-col>
+      </ion-row>
+
+  </ion-content>

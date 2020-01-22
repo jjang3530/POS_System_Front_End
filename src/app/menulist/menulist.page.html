@@ -1,0 +1,42 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>
+        Menu List
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+      <ion-card>
+          <ion-row>
+            <ion-col size="4">Menu</ion-col>
+            <ion-col>Menu Image</ion-col>
+            <ion-col>Unit Price</ion-col>
+          </ion-row>
+        </ion-card>
+      
+        <ion-card *ngFor="let menu of menuData"> 
+          <ion-row class="menu">
+            <ion-col size="4">{{menu.menuName}}</ion-col>
+            <ion-col class="menuphoto">
+                <ion-thumbnail >
+                    <ion-img  [src]="menu.thumbPic" alt="PIC Thumb"></ion-img>
+                </ion-thumbnail>
+            </ion-col>
+            <ion-col class="price">${{menu.unitPrice}}</ion-col>
+          </ion-row>
+        </ion-card>
+        
+        <ion-row>
+            <ion-col>
+            </ion-col>
+            <ion-col>
+                  <ion-icon class="icon" color="primary" name="home" [routerLink] ="['/home']"></ion-icon>
+            </ion-col>
+            <ion-col>
+            </ion-col>
+          </ion-row>
+  </ion-content>
